@@ -34,7 +34,8 @@ h2 {
     letter-spacing: 0.03em;
     text-align: center;
     font-size: 15px;
-    font-weight:500;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight:bold;
   }
   .table-row {
     text-align: center;
@@ -60,7 +61,7 @@ h2 {
     flex-basis: 15%;
   }
   .col-7 {
-    flex-basis: 15%;
+    flex-basis: 10%;
   }
   
 }
@@ -71,7 +72,7 @@ h2 {
   background-color: #2F58CD;
   border: hidden;
   height: 40px;
-  width: 160px;
+  width: 180px;
   border-radius: 20px;
   text-align: center;
   font-weight: bold;

@@ -20,7 +20,7 @@
    
 }
 #field-row{
-    padding-top: 10px;
+    padding-top: 3px;
     margin-bottom: 10px;
     display: flex;
     flex-wrap: wrap;
@@ -56,7 +56,7 @@ body{
 }
 
 label:not(.select-label){
-    padding-top: 5%;
+    padding-top: 4%;
     padding-bottom: 2px;
     padding-left: 9px;
 }
@@ -106,13 +106,13 @@ select {
 input[type="submit"]  {
     border: hidden;
     height: 40px;
-    width: 100px;
+    width: 110px;
     border-radius: 20px;
     text-align: center;
     font-weight: bold;
-    font-size: 15px;
+    font-size: 16px;
     margin: 0 auto;
-    margin-top: 5%;
+    margin-top: 3%;
     margin-bottom: 15px;
     color: white;
     background-color: blue;
@@ -125,7 +125,7 @@ input[type="submit"]  {
     padding-top: 5px;
     padding-left: 5px;
     margin: 5px;
-    margin-top: 8px;
+    margin-top: 6px;
     width: 97%;
 }
 
@@ -206,15 +206,21 @@ sup{
     font-size: 18px;
 }
 
-@media (max-width:480px){
- body{
-    background-color: wheat;
- }
- .formContainer{
-    width: 90%;
-    height: auto;
- }
- #field-row5{
-    margin-left: 5%;
- }
+@media (max-width:500px){
+    body
+    {
+        background-color: wheat;
+    }
+    .formContainer
+    {
+        width: 90%;
+        height: auto;
+    }
+    #field-row5
+    {
+        margin-left: 5%;
+    }
+    label{
+        padding-top: 2%;
+    }
 }
