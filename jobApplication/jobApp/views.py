@@ -30,9 +30,11 @@ def add_user(request):
         zip_code = request.POST['zipcode']
 
         if (validateName(fname) and
+            validateCode(country_code) and
             validateNumber(phone) and 
             validateEmail(email) and 
-            validateDob(dob)
+            validateDob(dob) and
+            validateRole(job_role)
             ):
             details = ApplicantDetails.objects.create(
                 full_name = fname,
@@ -171,9 +173,11 @@ def edit_user(request, applicant_id):
         new_data = ApplicantDetails.objects.get(id=applicant_id)
           
         if (validateName(fname) and 
+            validateCode(country_code) and
             validateNumber(phone) and 
             validateEmail(email) and 
-            validateDob(dob) 
+            validateDob(dob) and
+            validateRole(job_role)
             ):
             new_data.full_name = fname
             new_data.country_code = country_code
