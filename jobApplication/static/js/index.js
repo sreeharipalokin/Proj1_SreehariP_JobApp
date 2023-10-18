@@ -4,7 +4,7 @@ const fullname = document.getElementById('fullname')
 const phone = document.getElementById('phone-number');
 const email = document.getElementById('email');
 const dob = document.getElementById('dob');
-// const male = document.getElementById('male');
+const role = document.getElementById('job-role');
 // const female = document.getElementById('female');
 // const others = document.getElementById('others');
 
@@ -13,7 +13,7 @@ const error_fname = document.getElementById('error-fname')
 const error_phone = document.getElementById('error-phone')
 const error_email = document.getElementById('error-email')
 const error_dob = document.getElementById('error-dob')
-// const error_gender = document.getElementById('error-gender')
+const error_role = document.getElementById('error-role')
 // const error_exp = document.getElementById('error-exp')
 
 // submit event
@@ -23,7 +23,7 @@ form.addEventListener('submit', (event) => {
    validatePhoneNumber(event);
    validateEmail(event);
    validateDob(event);
-
+   validateJobRole(event);
 });
 
 
@@ -160,6 +160,14 @@ function validateDob(event) {
 form.addEventListener('change', (event) => {
     validateDob(event);
 })
+
+// validate Job Role
+
+function validateJobRole(event){
+    console.log(role.value)
+}
+
+
 
 function preventbackbutton(){window.history.forward();}
 setTimeout("preventbackbutton()", 0);

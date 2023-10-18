@@ -1,15 +1,15 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import ApplicantDetails
 from django.contrib import messages
-from datetime import datetime,date
+from datetime import datetime, date
 import re
 
 # Create your views here.
 
 def index(request):
     values = ApplicantDetails.objects.all().order_by('-id')
-    return render(request,"jobapp/HomePage.html",{"values":values})
+    return render(request, "jobapp/HomePage.html", {"values":values})
 
 def add_user(request):
     if request.method == "POST":
@@ -29,44 +29,33 @@ def add_user(request):
         country = request.POST['country']
         zip_code = request.POST['zipcode']
 
-        if (validateName(fname) and 
+        if (validateName(fname) and
             validateNumber(phone) and 
-            validateEmail(email) and
-            validateCode(country_code) and 
-            validateDob(dob) and 
-            validateGender(gender) and
-            validateYears(experience_years) and 
-            validateMonths(experience_months) and 
-            validateAddress(address_line1) and
-            validateRole(job_role) and 
-            validateCity(city) and 
-            validateState(state) and 
-            validateCountry(country) and 
-            validateZipcode(zip_code)
+            validateEmail(email) and 
+            validateDob(dob)
             ):
-
             details = ApplicantDetails.objects.create(
-                full_name=fname,
-                country_code=country_code,
-                phone_number=phone,
-                email_id=email,
-                dob=dob,
-                gender=gender,
-                years=experience_years,
-                months=experience_months,
-                job_role=job_role,
-                address_line_1=address_line1,
-                address_line_2=address_line2,
-                city=city,
-                state=state,
-                country=country,
-                zip_code=zip_code
+                full_name = fname,
+                country_code = country_code,
+                phone_number = phone,
+                email_id = email,
+                dob = dob,
+                gender = gender,
+                years = experience_years,
+                months = experience_months,
+                job_role = job_role,
+                address_line_1 = address_line1,
+                address_line_2 = address_line2,
+                city = city,
+                state = state,
+                country = country,
+                zip_code = zip_code
                 )
             details.save()
             
             # messages.info(request,"Applicant successfuly registered")
             return redirect('index')
-    return render(request,"jobapp/AppForm.html")
+    return render(request, "jobapp/AppForm.html")
 
 def validateName(fullname):
     if (fullname == "" or fullname == None or len(fullname) > 75 or len(fullname) < 3):
@@ -76,7 +65,7 @@ def validateName(fullname):
     
 def validateNumber(number):
     phonepattern = r'^\d{10}$'
-    matchs = re.match(phonepattern,number)
+    matchs = re.match(phonepattern, number)
     if((number == "") or (matchs is None)):
         return False
     else:
@@ -84,7 +73,7 @@ def validateNumber(number):
 
 def validateEmail(email):
     emailpattern = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,7}\b'
-    matchs = re.match(emailpattern,email)
+    matchs = re.match(emailpattern, email)
     if(( email== "") or (matchs is None)):
         return False
     else:
@@ -98,8 +87,8 @@ def validateCode(code):
 
 def validateDob(dob):
     today = str(date.today())
-    date1 = datetime.strptime(today,"%Y-%m-%d")
-    date2 = datetime.strptime(dob,"%Y-%m-%d")
+    date1 = datetime.strptime(today, "%Y-%m-%d")
+    date2 = datetime.strptime(dob, "%Y-%m-%d")
     time_diff = (date1 - date2).days
     if (dob == "" or dob == None or time_diff < 18):
         return False
@@ -161,7 +150,7 @@ def validateZipcode(zipcode):
         return True
     
 
-def edit_user(request,applicant_id):
+def edit_user(request, applicant_id):
     details = ApplicantDetails.objects.filter(id=applicant_id)
     if request.method == "POST":
         fname = request.POST['fullname']
@@ -184,37 +173,27 @@ def edit_user(request,applicant_id):
         if (validateName(fname) and 
             validateNumber(phone) and 
             validateEmail(email) and 
-            validateCode(country_code) and 
-            validateDob(dob) and 
-            validateGender(gender) and 
-            validateYears(experience_years) and 
-            validateMonths(experience_months) and 
-            validateAddress(address_line1) and 
-            validateRole(job_role) and 
-            validateCity(city) and 
-            validateState(state) and 
-            validateCountry(country) and 
-            validateZipcode(zip_code)
+            validateDob(dob) 
             ):
-            new_data.full_name=fname
-            new_data.country_code=country_code
-            new_data.phone_number=phone
-            new_data.email_id=email
-            new_data.dob=dob
-            new_data.gender=gender
-            new_data.years=experience_years
-            new_data.months=experience_months
-            new_data.job_role=job_role
-            new_data.address_line_1=address_line1
-            new_data.address_line_2=address_line2
-            new_data.city=city
-            new_data.state=state
-            new_data.country=country
-            new_data.zip_code=zip_code
+            new_data.full_name = fname
+            new_data.country_code = country_code
+            new_data.phone_number = phone
+            new_data.email_id = email
+            new_data.dob = dob
+            new_data.gender = gender
+            new_data.years = experience_years
+            new_data.months = experience_months
+            new_data.job_role = job_role
+            new_data.address_line_1 = address_line1
+            new_data.address_line_2 = address_line2
+            new_data.city = city
+            new_data.state = state
+            new_data.country = country
+            new_data.zip_code = zip_code
             new_data.save()
             return redirect('index') 
-    return render(request,"jobapp/Edit_page.html",{"details":details})
+    return render(request, "jobapp/Edit_page.html", {"details":details})
 
-def del_user(request,applicant_id):
+def del_user(request, applicant_id):
     ApplicantDetails.objects.get(id=applicant_id).delete()
     return redirect('index')
