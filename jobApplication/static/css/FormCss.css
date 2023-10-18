@@ -208,9 +208,10 @@ select[name="country-code"] {
 #error-fname,
 #error-phone,
 #error-email,
-#error-dob {
+#error-dob,
+#error-role {
     font-size: 13px;
-    margin-left: 20px;
+    margin-left: 19px;
     color: red;
    
     

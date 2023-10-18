@@ -5,8 +5,9 @@ const phone = document.getElementById('phone-number');
 const email = document.getElementById('email');
 const dob = document.getElementById('dob');
 const role = document.getElementById('job-role');
-// const female = document.getElementById('female');
-// const others = document.getElementById('others');
+const male = document.getElementById('male');
+const female = document.getElementById('female');
+const others = document.getElementById('others');
 
 // error signals
 const error_fname = document.getElementById('error-fname')
@@ -14,7 +15,7 @@ const error_phone = document.getElementById('error-phone')
 const error_email = document.getElementById('error-email')
 const error_dob = document.getElementById('error-dob')
 const error_role = document.getElementById('error-role')
-// const error_exp = document.getElementById('error-exp')
+const error_gender = document.getElementById('error-gender')
 
 // submit event
 form.addEventListener('submit', (event) => {
@@ -24,6 +25,8 @@ form.addEventListener('submit', (event) => {
    validateEmail(event);
    validateDob(event);
    validateJobRole(event);
+//    validateGender(event);
+   
 });
 
 
@@ -164,10 +167,43 @@ form.addEventListener('change', (event) => {
 // validate Job Role
 
 function validateJobRole(event){
-    console.log(role.value)
+   let messages = []
+   if (role.value == "" || role.value == null){
+    messages.push('Please select a role from the given options')
+    window.scrollTo(0,0)
+   }
+   else {
+    error_role.innerText = messages.join(', ')
+   }
+   if (messages.length > 0) {
+    event.preventDefault();
+    error_role.innerText = messages.join(', ')
+    }
 }
 
+form.addEventListener('change', (event) => {
+    validateJobRole(event);
+})
 
+// validate Gender
+
+// function validateGender(event){
+//     let messages = []
+//     if(!male.value && !female.value && !others.value){
+//         messages.push('Select a field')
+//     }
+//     else{
+//         error_gender.innerText = messages.join(', ')  
+//     }
+//     if (messages.length > 0) {
+//         event.preventDefault();
+//         error_gender.innerText = messages.join(', ')
+//     }
+// }
+
+// form.addEventListener('change', (event) => {
+//     validateGender(event);
+// })
 
 function preventbackbutton(){window.history.forward();}
 setTimeout("preventbackbutton()", 0);
