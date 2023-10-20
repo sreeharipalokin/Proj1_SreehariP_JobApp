@@ -1,21 +1,7 @@
-{% load static %}
+{% extends "jobapp/Base.html" %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-   
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Job Form</title>
-    <link rel="stylesheet" href="{% static 'css/FormCss.css' %}">
+{% block body %}
 
-</head>
-<body>
-      <div id="field-row">
-          <h2 class="title">Job Application Form</h2>
-        </div>
-          
-        <div class="formContainer">
 
             {% if messages %}
             <table>
@@ -176,8 +162,5 @@
       </form>
       {% endfor %}
       {% endif %} 
-        </div>     
-
-        <script defer type="text/javascript" src="{% static 'js/index.js' %}"></script>
-</body>
-</html>
+ 
+{% endblock body %}

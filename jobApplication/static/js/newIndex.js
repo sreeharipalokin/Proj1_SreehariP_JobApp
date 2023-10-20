@@ -1,37 +1,24 @@
-// input from form
-const form = document.getElementById('form')
-const fullname = document.getElementById('fullname') 
-const phone = document.getElementById('phone-number');
-const email = document.getElementById('email');
-const dob = document.getElementById('dob');
-const role = document.getElementById('job-role');
-const male = document.getElementById('male');
-const female = document.getElementById('female');
-const others = document.getElementById('others');
+form = document.getElementById('form');
 
-// error signals
-const error_fname = document.getElementById('error-fname')
-const error_phone = document.getElementById('error-phone')
-const error_email = document.getElementById('error-email')
-const error_dob = document.getElementById('error-dob')
-const error_role = document.getElementById('error-role')
-const error_gender = document.getElementById('error-gender')
+const fullname = document.getElementById('id_full_name');
+const phone = document.getElementById('id_phone_number');
+const email = document.getElementById('id_email_id');
+const dob = document.getElementById('id_dob');
+const role = document.getElementById('id_job_role');
 
-// submit event
-form.addEventListener('submit', (event) => {
-    
-   validateFullName(event);
-   validatePhoneNumber(event);
-   validateEmail(event);
-   validateDob(event);
-   validateJobRole(event);
-//    validateGender(event);
-   
+const error_fname = document.getElementById('error-fname');
+const error_phone = document.getElementById('error-phone');
+const error_email = document.getElementById('error-email');
+const error_dob = document.getElementById('error-dob');
+const error_role = document.getElementById('error-role');
+
+form.addEventListener('submit', function(event) {
+    validateFullName(event);
+    validatePhoneNumber(event);
+    validateEmail(event);
+    validateDob(event);
+    validateJobRole(event);
 });
-
-
-// validate fullName
-
 
 function validateFullName(event){
     let messages = []
@@ -65,11 +52,9 @@ function validateFullName(event){
 }
 
 form.addEventListener('change', (event) => {
-    validateFullName(event);
-  
+    validateFullName(event); 
 });
 
-// validate phoneNumber
 
 function validatePhoneNumber(event) {
     let messages = []
@@ -98,7 +83,6 @@ form.addEventListener('change', (event) => {
     validatePhoneNumber(event);
 });
 
-// validate email
 
 function validateEmail(event) {
     let messages = []
@@ -128,8 +112,6 @@ form.addEventListener('change', (event) => {
 });
 
 
-// validate dob
-
 function validateDob(event) {
     const currDate = new Date(); 
     const year = currDate.getFullYear();
@@ -145,7 +127,7 @@ function validateDob(event) {
     let messages = []
 
     if (timeDiff < 18) {
-        messages.push('Not eligible, the applicant should be minimum 18 years old ')
+        messages.push('Not eligible, the applicant should be 18 years old or more ')
         window.scrollTo(0,0)
     } 
     else if (dob.value === '' || dob.value == null){
@@ -163,49 +145,30 @@ function validateDob(event) {
 
 form.addEventListener('change', (event) => {
     validateDob(event);
-})
+});
 
-// validate Job Role
 
 function validateJobRole(event){
-   let messages = []
-   if (role.value == "" || role.value == null){
-    messages.push('Please select a role from the given options')
-    window.scrollTo(0,0)
-   }
-   else {
-    error_role.innerText = messages.join(', ')
-   }
-   if (messages.length > 0) {
-    event.preventDefault();
-    error_role.innerText = messages.join(', ')
+    let messages = []
+    if (role.value == "" || role.value == null){
+     messages.push('Please select a role from the given options')
     }
-}
+    else {
+     error_role.innerText = messages.join(', ')
+    }
+    if (messages.length > 0) {
+     event.preventDefault();
+     error_role.innerText = messages.join(', ')
+     }
+ }
+ 
+ form.addEventListener('change', (event) => {
+     validateJobRole(event);
+ });
+ 
 
-form.addEventListener('change', (event) => {
-    validateJobRole(event);
-})
-
-// validate Gender
-
-// function validateGender(event){
-//     let messages = []
-//     if(!male.value && !female.value && !others.value){
-//         messages.push('Select a field')
-//     }
-//     else{
-//         error_gender.innerText = messages.join(', ')  
-//     }
-//     if (messages.length > 0) {
-//         event.preventDefault();
-//         error_gender.innerText = messages.join(', ')
-//     }
-// }
-
-// form.addEventListener('change', (event) => {
-//     validateGender(event);
-// })
 
 function preventbackbutton(){window.history.forward();}
 setTimeout("preventbackbutton()", 0);
 window.onunload=function(){null};
+ 

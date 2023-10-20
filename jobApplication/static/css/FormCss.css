@@ -13,7 +13,7 @@
     height: 60%;
     border-radius: 12px;
     margin: 0 auto;
-    margin-top: 40px;
+    margin-top: 30px;
     margin-bottom: 120px;
     padding-bottom: 5px;
     box-shadow:  0 0 5px #000000;
@@ -106,7 +106,7 @@ select {
 input[type="submit"]  {
     border: hidden;
     height: 40px;
-    width: 110px;
+    width: 140px;
     border-radius: 20px;
     text-align: center;
     font-weight: bold;
@@ -206,6 +206,7 @@ sup{
     font-size: 18px;
 }
 
+/* Mobile view  */
 @media (max-width:500px){
     body
     {
@@ -216,11 +217,144 @@ sup{
         width: 90%;
         height: auto;
     }
-    #field-row5
+    #field-row5  /*for radio button */
     {
         margin-left: 5%;
     }
     label{
         padding-top: 2%;
     }
+}
+
+
+/* For newly created Django Model Form */
+
+
+#label-field{
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 5px;
+    margin: 5px;
+    margin-top: 10px;
+    width: 97%;
+}
+#fullname-label-field{
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 5px;
+    margin: 5px;
+    padding-top: 15px;
+    width: 97%;
+}
+#input-field{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-top: 5px;
+    padding-left: 5px;
+    margin: 5px;
+    margin-top: 6px;
+    width: 97%;
+}
+
+.full_name{
+    max-width: 600px;
+}
+
+.country_code {
+    background: none;
+    border-bottom: 1px inset;
+}
+
+.phone_number {
+    margin-left: 10px;
+}
+
+.email_id{
+    max-width: 600px;
+}
+
+.gender {
+    display: inline-block;
+    padding-bottom: 5px;
+    margin-bottom: 4px;
+    margin-right: 10px;
+}
+
+.years{
+    width: 49%; margin-right: 13px;
+    background: none;
+    border-bottom: 1px inset;
+}
+
+.years option:first-child{
+    display: none;
+}
+
+.months{
+    width: 49%;
+    background: none;
+    border-bottom: 1px inset;
+}
+
+.months option:first-child{
+    display: none;
+}
+
+.job_role{
+    width: 100%;
+    background: none;
+    border-bottom: 1px inset;
+}
+
+.job_role option:first-child{
+    display: none;
+}
+
+.address_fields{
+    max-width: 600px;
+}
+
+.deletion-warning{
+    margin-top: 10px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.delete-choice-btn
+{
+    margin-top: 10px;
+    margin-left: 25%;
+    margin-bottom: 10px;
+}
+
+.delete-yes{
+    border: hidden;
+    height: 40px;
+    width: 140px;
+    border-radius: 20px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
+    background-color: rgb(240, 38, 38);
+    margin-right: 20px;
+}
+
+.delete-yes:hover, .delete-no:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+}
+.delete-no{
+    border: hidden;
+    height: 40px;
+    width: 140px;
+    border-radius: 20px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
+    background-color: rgb(43, 216, 129);
 }

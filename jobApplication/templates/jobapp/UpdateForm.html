@@ -1,0 +1,96 @@
+{% extends "jobapp/Base.html" %}
+
+{% block body %}
+
+<form method="POST" action="" id="form">
+    {% csrf_token %}
+   
+    <div id="fullname-label-field">
+        {{form.full_name.label}}
+        <sup>*</sup>
+    </div>
+    <div id="input-field">
+       {{form.full_name}}
+    </div> 
+    <div id="error-fname"></div>
+
+    <div id="label-field">
+        {{form.phone_number.label}}
+        <sup>*</sup>
+    </div>
+    <div id="input-field">
+       {{form.country_code}}
+       {{form.phone_number}}
+    </div>
+    <div id="error-phone"></div>
+
+    <div id="label-field">
+        {{form.email_id.label}}
+        <sup>*</sup>
+    </div>
+    <div id="input-field">
+       {{form.email_id}}
+    </div>
+    <div id="error-email"></div>
+
+    <div id="label-field">
+        {{form.dob.label}}
+        <sup>*</sup>
+    </div>
+    <div id="input-field">
+       {{form.dob}}
+    </div>
+    <div id="error-dob"></div>
+
+    <div id="label-field">
+        {{form.gender.label}}
+    </div>
+    <div id="input-field">
+       {{form.gender}}
+    </div>
+
+    <div id="label-field">
+        {{form.years.label}}
+    </div>
+    <div id="input-field">
+       {{form.years}}
+       {{form.months}}
+    </div>
+
+    <div id="label-field">
+        {{form.job_role.label}}
+        <sup>*</sup>
+    </div>
+    <div id="input-field">
+       {{form.job_role}}
+    </div>
+    <div id="error-role"></div>
+
+    <div id="label-field">
+        {{form.address_line_1.label}}
+    </div>
+    <div id="input-field">
+       {{form.address_line_1}}
+    </div>
+    <div id="input-field">
+        {{form.address_line_2}}
+     </div>
+     <div id="input-field">
+        {{form.city}}
+     </div>
+     <div id="input-field">
+        {{form.state}}
+     </div>
+     <div id="input-field">
+        {{form.country}}
+     </div>
+     <div id="input-field">
+        {{form.zip_code}}
+     </div>
+
+
+    <div id="field-row1">
+        <input type="submit" value="Submit" class="submit">
+    </div>
+</form>
+{% endblock body %}

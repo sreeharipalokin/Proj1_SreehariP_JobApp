@@ -5,3 +5,6 @@ lib64/
 share/
 
 pyvenv.cfg
+
+jobApplication/jobApp/migrations
+jobApplication/jobApp/__pycache__
