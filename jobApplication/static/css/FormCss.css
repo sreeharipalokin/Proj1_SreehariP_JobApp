@@ -14,7 +14,7 @@
     border-radius: 12px;
     margin: 0 auto;
     margin-top: 30px;
-    margin-bottom: 120px;
+    margin-bottom: 60px;
     padding-bottom: 5px;
     box-shadow:  0 0 5px #000000;
    
@@ -37,21 +37,9 @@
     width: 97%;
 }
 
-#field-row2{
-    display: flex;
-    justify-content: flex-end;
-    padding-right: 5px;
-}
-
-
-#field-row3{
-    display: flex;
-    justify-content:space-between;
-    padding-right: 5px;
-}
 
 body{
-    background-color: #64A4EA;
+    background-color: #BEADFA;
     /* background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12); */
 }
 
@@ -119,16 +107,6 @@ input[type="submit"]  {
 }
 
 
-#field-row4{
-    display: flex;
-    justify-content: flex-start;
-    padding-top: 5px;
-    padding-left: 5px;
-    margin: 5px;
-    margin-top: 6px;
-    width: 97%;
-}
-
 select[name="experience-years"],
 select[name="experience-months"],
 select[name="phone"] {
@@ -150,26 +128,16 @@ select[name="country-code"] {
     background: none;
     border-bottom: 1px inset;
 }
+
 #error-fname,
 #error-phone,
 #error-email,
 #error-dob,
-#error-role {
+#error-role,
+#error-gender {
     font-size: 13px;
     margin-left: 19.75px;
     color: red;   
-}
-
-#field-row5{
-    display: flex;
-    margin-left: 15%;
-    margin-top: 8px;
-}
-
-#field-row5 span {
-    margin-left: 10px;
-    margin-right: 90px;
-    font-size: 13.75px;
 }
 
 .title{
@@ -186,6 +154,7 @@ select[name="country-code"] {
 }
 .submit{
     cursor: pointer;
+    outline: none;
 }
 
 #job-role option:first-child{
@@ -208,19 +177,13 @@ sup{
 
 /* Mobile view  */
 @media (max-width:500px){
-    body
-    {
-        background-color: wheat;
-    }
+   
     .formContainer
     {
         width: 90%;
         height: auto;
     }
-    #field-row5  /*for radio button */
-    {
-        margin-left: 5%;
-    }
+   
     label{
         padding-top: 2%;
     }
@@ -229,7 +192,7 @@ sup{
 
 /* For newly created Django Model Form */
 
-
+/* for label of input fields */
 #label-field{
     display: flex;
     justify-content: flex-start;
@@ -238,6 +201,8 @@ sup{
     margin-top: 10px;
     width: 97%;
 }
+
+/* for the label of full name field */
 #fullname-label-field{
     display: flex;
     justify-content: flex-start;
@@ -246,6 +211,8 @@ sup{
     padding-top: 15px;
     width: 97%;
 }
+
+/* for the input fields */
 #input-field{
     display: flex;
     flex-direction: row;
@@ -257,104 +224,101 @@ sup{
     width: 97%;
 }
 
+/* the full name field */
 .full_name{
     max-width: 600px;
+    outline: none;
 }
 
+/* country code */
 .country_code {
     background: none;
     border-bottom: 1px inset;
+    outline: none;
 }
 
+/* phone number */
 .phone_number {
     margin-left: 10px;
+    outline: none;
 }
 
+/* email id */
 .email_id{
     max-width: 600px;
+    outline: none;
 }
 
+/* date of birth */
+.dob{
+    outline: none;
+}
+
+/* gender */
 .gender {
     display: inline-block;
     padding-bottom: 5px;
     margin-bottom: 4px;
     margin-right: 10px;
+    accent-color: blue;
 }
 
+/* years */
 .years{
     width: 49%; margin-right: 13px;
     background: none;
     border-bottom: 1px inset;
+    outline: none;
 }
 
+/* to hide the first value in select field */
 .years option:first-child{
     display: none;
 }
 
+/* months */
 .months{
     width: 49%;
     background: none;
     border-bottom: 1px inset;
+    outline: none;
 }
 
+/* to hide the first value in select field */
 .months option:first-child{
     display: none;
 }
 
+/* job role */
 .job_role{
     width: 100%;
     background: none;
     border-bottom: 1px inset;
+    outline: none;
 }
 
+/* to hide the first value in select field */
 .job_role option:first-child{
     display: none;
 }
 
+/* address fields */
 .address_fields{
     max-width: 600px;
+    outline: none;
 }
 
-.deletion-warning{
-    margin-top: 10px;
-    text-align: center;
-    font-size: 30px;
-    font-weight: bold;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+/* to highlight the fields */
+.full_name:focus,
+.phone_number:focus,
+.country_code:focus,
+.email_id:focus,
+.dob:focus,
+.address_fields:focus,
+.years:focus,
+.months:focus,
+.job_role:focus{
+    border: 1.5px solid blue;
+    border-radius: 4px;
 }
 
-.delete-choice-btn
-{
-    margin-top: 10px;
-    margin-left: 25%;
-    margin-bottom: 10px;
-}
-
-.delete-yes{
-    border: hidden;
-    height: 40px;
-    width: 140px;
-    border-radius: 20px;
-    text-align: center;
-    font-weight: bold;
-    font-size: 16px;
-    color: white;
-    background-color: rgb(240, 38, 38);
-    margin-right: 20px;
-}
-
-.delete-yes:hover, .delete-no:hover{
-    cursor: pointer;
-    transform: scale(1.05);
-}
-.delete-no{
-    border: hidden;
-    height: 40px;
-    width: 140px;
-    border-radius: 20px;
-    text-align: center;
-    font-weight: bold;
-    font-size: 16px;
-    color: white;
-    background-color: rgb(43, 216, 129);
-}
